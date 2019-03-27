@@ -23,6 +23,9 @@
       </cell>
       <cell title="$t('Show Me')" @click.native="showModule" is-link></cell>
     </group>
+    <group>
+      <!-- <calendar :readonly="readonly" v-model="demo1" title="$t('Basic Usage')" disable-past placeholder="placeholder" @on-show="log('show')" @on-hide="log('hide')"></calendar> -->
+    </group>
   </div>
 </template>
 <script>
@@ -30,7 +33,9 @@ import { AlertModule, Group, XSwitch, XHeader, Cell } from "vux";
 export default {
   data() {
     return {
-      show: false
+      show: false,
+      readonly: false,
+      demo1: ""
     };
   },
   components: {
@@ -43,7 +48,7 @@ export default {
     showModule() {
       AlertModule.show({
         title: "VUX is Cool",
-        content:"23",
+        content: "23",
         onShow() {
           console.log("Module: I'm showing");
         },
@@ -51,7 +56,27 @@ export default {
           console.log("Module: I'm hiding now");
         }
       });
+    },
+    log(str) {
+      console.log(str);
+    },
+    onChange(val) {
+      console.log("on change", val);
     }
+  },
+  created() {
+    // this.$vux.alert.show({
+    //   title: "VUX is Cool",
+    //   content: "Do you agree?",
+    //   onShow() {
+    //     console.log("Module: I'm showing");
+    //   },
+    //   onHide() {
+    //     console.log("Module: I'm hiding now");
+    //   }
+    // });
+    // 显示文字
+    this.$vux.toast.text("登陆成功", "center");
   }
 };
 </script>
