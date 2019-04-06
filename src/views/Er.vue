@@ -35,7 +35,7 @@ export default {
     that.$nextTick(function() {
       //生成二维码
       var canvas1 = qrcanvas({
-        data: decodeURIComponent("www.baidu.com"),
+        data: decodeURIComponent("http://192.168.2.228:8081"),
         size: 128
       });
       canvas1.id = "cas";
@@ -90,14 +90,14 @@ export default {
   }
   .qrcode {
     position: absolute;
-    top: 60%;
+    top: 50%;
     left: 50%;
     margin-left: -64px;
     z-index: 5;
   }
   .text {
     position: absolute;
-    top: 80%;
+    top: 70%;
     left: 50%;
     margin-left: -64px;
     z-index: 5;
